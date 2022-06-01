@@ -31,8 +31,8 @@ MVC with Spring Boot
 ---
 
 ### Prefix and Suffix
-- below properties can be added for specifying prefix and suffix in application.properties file.
+- Below properties can be added for specifying prefix and suffix in application.properties file.
 ---
-spring.mvc.view.prefix= /views/
-spring.mvc.view.suffix= .jsp
+* spring.mvc.view.prefix= /views/
+* spring.mvc.view.suffix= .jsp
 ---
