@@ -1,6 +1,7 @@
 package com.techxtor.springbootmvc.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,10 +19,9 @@ public class AddNumbersController {
     }
 
     @RequestMapping("/add-result")
-    public ModelAndView Add(@RequestParam("num1") int i, @RequestParam("num2") int j) {
-        Map<String, Object> valuesMap = new HashMap<>();
-        valuesMap.put("res", i+j);
-        ModelAndView mv = new ModelAndView("add-result", valuesMap);
-        return mv;
+    public String Add(@RequestParam("num1") int i, @RequestParam("num2") int j, Model m) {
+        int num3 = i + j;
+        m.addAttribute("res", num3);
+        return "add-result";
     }
 }

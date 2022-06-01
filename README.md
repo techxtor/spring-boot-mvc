@@ -36,3 +36,10 @@ MVC with Spring Boot
 * spring.mvc.view.prefix= /views/
 * spring.mvc.view.suffix= .jsp
 ---
+
+### Model:
+- sets model
+- pass it as listener argument `Model m`
+---
+     m.addAttribute("_attributeName_", _attributeValue_);
+---
