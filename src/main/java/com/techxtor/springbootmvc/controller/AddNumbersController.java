@@ -30,6 +30,6 @@ public class AddNumbersController {
     public String Add(@RequestParam("num1") int i, @RequestParam("num2") int j, HttpSession session){
         int num3 = i+j;
         session.setAttribute("res", num3);
-        return "result.jsp";
+        return "add-result.jsp";
     }
 }
