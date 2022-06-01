@@ -43,3 +43,6 @@ MVC with Spring Boot
 ---
      m.addAttribute("_attributeName_", _attributeValue_);
 ---
+
+### ModelMap:
+- same as Model, extends `LinkedHashMap<String, Object>`
