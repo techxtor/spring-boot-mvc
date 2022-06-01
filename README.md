@@ -39,7 +39,7 @@ MVC with Spring Boot
 
 ### Model:
 - sets model
-- pass it as listener argument `Model m`
+- pass it as argument `Model m` to listener method
 ---
      m.addAttribute("_attributeName_", _attributeValue_);
 ---
