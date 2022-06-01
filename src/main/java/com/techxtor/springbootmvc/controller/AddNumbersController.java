@@ -14,23 +14,14 @@ import java.util.Map;
 public class AddNumbersController {
     @RequestMapping("/add-numbers")
     public String addNumbers(){
-        return "add-numbers.jsp";
+        return "add-numbers";
     }
-
-    /*@RequestMapping("/add-result")
-    public ModelAndView Add(@RequestParam("num1") int i, @RequestParam("num2") int j) {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("add-result.jsp");
-        int num3 = i + j;
-        mv.addObject("res", num3);
-        return mv;
-    }*/
 
     @RequestMapping("/add-result")
     public ModelAndView Add(@RequestParam("num1") int i, @RequestParam("num2") int j) {
         Map<String, Object> valuesMap = new HashMap<>();
         valuesMap.put("res", i+j);
-        ModelAndView mv = new ModelAndView("add-result.jsp", valuesMap);
+        ModelAndView mv = new ModelAndView("add-result", valuesMap);
         return mv;
     }
 }
