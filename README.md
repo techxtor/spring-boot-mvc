@@ -79,11 +79,28 @@ MVC with Spring Boot
    1. add `method` attribute to `@RequestMapping`
 ---
     @RequestMapping(value = "/add-alien", method = RequestMethod.POST)
-        public String AddAlien(@ModelAttribute("a1") Alien a) {
-            return "alien-result";
+    public String AddAlien(@ModelAttribute("a1") Alien a) {
+        return "alien-result";
     }
 ---
    2. add `@PostMapping` instead of `@RequestMapping`
 ---
     @PostMapping(value = "/add-alien")
+---   
+
+### GET Mapping
+- `@RequestMapping` accepts all http method type.
+- To make listener respond to specific http Method (here `GET`), there are 2 ways:
+   1. add `method` attribute to `@RequestMapping`
+---
+    @RequestMapping(value = "/get-aliens", method = RequestMethod.GET)
+    public String getAlien(Model m) {
+        List<Alien> alienList = Arrays.asList(new Alien(101, "Techxtor"), new Alien(102, "Manish"));
+        m.addAttribute("result", alienList);
+        return "show-aliens";
+    }
+---
+   2. add `@GetMapping` instead of `@RequestMapping`
+---
+    @GetMapping(value = "/get-aliens")
 ---   
