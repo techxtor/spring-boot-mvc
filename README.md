@@ -46,3 +46,29 @@ MVC with Spring Boot
 
 ### ModelMap:
 - same as Model, extends `LinkedHashMap<String, Object>`
+
+### @ModelAttribute
+- When in JSP page, reference of model is de-capitalized version of model name
+    - Example for Model "Alien" if reference is ${alien} - below code works
+---
+    @RequestMapping("/add-alien")
+    public String AddAlien(Alien a) {
+        return "alien-result";
+    }
+---
+- However if the reference has a different name, we need to explicitly specify that.
+    - Example for Model "Alien", if reference is ${a1}, `@ModelAttribute` should link "a1" with "Alien"
+---
+    @RequestMapping("/add-alien")
+    public String AddAlien(@ModelAttribute("a1") Alien a) {
+        return "alien-result";
+    }
+---
+- It can be used at method level as well.
+- Below code makes attribute "name" with value of "Manish" available for all listeners, present in that controller class.
+---
+    @ModelAttribute
+    public void modelData(Model m) {
+        m.addAttribute("name", "Manish");
+    }
+---
