@@ -72,3 +72,18 @@ MVC with Spring Boot
         m.addAttribute("name", "Manish");
     }
 ---
+
+### POST Mapping
+- `@RequestMapping` accepts all http method type.
+- To make listener respond to specific http Method (here `POST`), there are 2 ways:
+   1. add `method` attribute to `@RequestMapping`
+---
+    @RequestMapping(value = "/add-alien", method = RequestMethod.POST)
+        public String AddAlien(@ModelAttribute("a1") Alien a) {
+            return "alien-result";
+    }
+---
+   2. add `@PostMapping` instead of `@RequestMapping`
+---
+    @PostMapping(value = "/add-alien")
+---   

@@ -9,7 +9,7 @@
     <title>Add Alien</title>
 </head>
 <body>
-<form action="add-alien">
+<form action="add-alien" method="post">
     Enter Id : <input type="text" name="aId">
     Enter Name : <input type="text" name="aName">
     <input type="submit">

@@ -3,9 +3,7 @@ package com.techxtor.springbootmvc.controller;
 import com.techxtor.springbootmvc.model.Alien;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class AlienController {
@@ -14,14 +12,13 @@ public class AlienController {
         return "add-alien";
     }
 
-    @RequestMapping("/add-alien")
+    /*@RequestMapping(value = "/add-alien", method = RequestMethod.POST)
     public String AddAlien(@ModelAttribute("a1") Alien a) {
         return "alien-result";
-    }
+    }*/
 
-    // Spring Framework calls this before any listener is called
-    @ModelAttribute
-    public void modelData(Model m) {
-        m.addAttribute("name", "Manish");
+    @PostMapping(value = "/add-alien")
+    public String AddAlien(@ModelAttribute("a1") Alien a) {
+        return "alien-result";
     }
 }
