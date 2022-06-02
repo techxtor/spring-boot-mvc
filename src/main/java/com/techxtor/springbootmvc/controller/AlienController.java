@@ -14,25 +14,14 @@ public class AlienController {
         return "add-alien";
     }
 
-    /*@RequestMapping("/add-alien")
-    public String AddAlien(@RequestParam("aId") int aId, @RequestParam("aName") String aName, Model m) {
-        Alien a = new Alien();
-        a.setaId(aId);
-        a.setaName(aName);
-        m.addAttribute("alien", a);
+    @RequestMapping("/add-alien")
+    public String AddAlien(@ModelAttribute("a1") Alien a) {
         return "alien-result";
     }
-*/
-    // same as above - Replaced @RequestParam with POJO/Model Class, provided.. inputs are same as Alien's attribute
-    // ${alien}
-   /* @RequestMapping("/add-alien")
-    public String AddAlien(Alien a) {
-        return "alien-result";
-    }*/
 
-   // ${a1}
-   @RequestMapping("/add-alien")
-   public String AddAlien(@ModelAttribute("a1") Alien a) {
-       return "alien-result";
-   }
+    // Spring Framework calls this before any listener is called
+    @ModelAttribute
+    public void modelData(Model m) {
+        m.addAttribute("name", "Manish");
+    }
 }
